@@ -56,7 +56,7 @@ synapse_h_update = synapse_h.new_zeros
     layer_1_values = []
     layer_1_values.push(Numo::DFloat.zeros(hidden_dim))
 
-	binary_dim.times do |position|
+    binary_dim.times do |position|
 
     	# generate input and output
         x_input = Numo::NArray[[a[binary_dim - position - 1],b[binary_dim - position - 1]]]
@@ -81,7 +81,7 @@ synapse_h_update = synapse_h.new_zeros
         # store hidden layer so we can use it in the next timestep
         # layer_1_values.append(copy.deepcopy(layer_1))
         layer_1_values.push(Marshal.load(Marshal.dump(layer_1))) # not efficient. it's just dirty hack!
-	end
+    end
 
     future_layer_1_delta = Numo::DFloat.zeros(hidden_dim)
 
